@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.7
 
 Style/StringLiterals:
   Enabled: true
@@ -11,3 +11,6 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Layout/EndOfLine:
+  Enabled: False
