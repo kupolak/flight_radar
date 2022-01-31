@@ -1,4 +1,4 @@
-#<img src="https://www.flightradar24.com/blog/wp-content/uploads/2020/04/Hi_Res_Transparent-2.jpg" width="200"/>
+<img src="https://www.flightradar24.com/blog/wp-content/uploads/2020/04/Hi_Res_Transparent-2.jpg" width="200"/>
 
 
 **Fetch aircraft data from Flightradar24.**
@@ -27,7 +27,7 @@ Or install it yourself as:
 FlightRadar.airlines
 ```
 **Sample response:**
-```json
+```ruby
 [
   {"Name"=>"21 Air", "Code"=>"2I", "ICAO"=>"CSB"},
   {"Name"=>"25Only Aviation", "Code"=>"", "ICAO"=>"ONY"},
@@ -73,7 +73,7 @@ airport = "LAX"
 FlightRadar.airports
 ```
 **Sample response:**
-```json
+```ruby
 [
    {
       "name""=>""A Coruna Airport",
@@ -102,7 +102,7 @@ FlightRadar.airports
 FlightRadar.zones
 ```
 **Sample response:**
-```json
+```ruby
 {
   "europe""=>"{
       "tl_y"=>72.57,
@@ -134,7 +134,7 @@ FlightRadar.flights
 ```
 
 **Sample response:**
-```json
+```ruby
 [
     "<(GRND)  - Altitude":"0 - Ground Speed":"146 - Heading":146>,
     "<(DRON) TEST4A - Altitude":"374 - Ground Speed":"1 - Heading":1>,
@@ -160,7 +160,7 @@ FlightRadar.flight_details(flight_id)
 ```
 
 **Sample response:**
-```json
+```ruby
 {
    "identification""=>"{
       "id""=>""2aaadc48",
@@ -200,7 +200,7 @@ FlightRadar.flights(airline: airline)
 ```
 
 **Sample response:**
-```json
+```ruby
 [
   "<(B789) SP-LSG - Altitude":"39992 - Ground Speed":"451 - Heading":451>,
   "<(B788) SP-LRA - Altitude":"38975 - Ground Speed":"537 - Heading":537>,
