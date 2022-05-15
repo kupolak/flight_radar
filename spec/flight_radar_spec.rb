@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../lib/flight_radar"
+require "spec_helper"
 
 RSpec.describe FlightRadar do
   it "gets airlines" do
