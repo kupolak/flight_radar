@@ -3,6 +3,24 @@
 
 **Fetch aircraft data from Flightradar24.**
 
+# Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Airlines](#airlines)
+    - [Airport](#airport)
+    - [Zones](#zones)
+    - [Flights](#flights)
+    - [Flight Details](#flight-details)
+    - [Flights by Airline](#flights-by-airline)
+    - [Flights by Bounds](#flights-by-bounds)
+    - [Airline Logo](#airline-logo)
+    - [Country Flag](#country-flag)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Code of Conduct](#code-of-conduct)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -26,194 +44,177 @@ Or install it yourself as:
 ```ruby
 FlightRadar.airlines
 ```
+
 **Sample response:**
+
 ```ruby
 [
   {"Name"=>"21 Air", "Code"=>"2I", "ICAO"=>"CSB"},
   {"Name"=>"25Only Aviation", "Code"=>"", "ICAO"=>"ONY"},
   {"Name"=>"40-Mile Air", "Code"=>"Q5", "ICAO"=>"MLA"},
-  ...
+# ...
 ]
 ```
+
 ### Airport
+
 ```ruby
 airport = "LAX"
 FlightRadar.airport(airport)
 ```
+
 **Sample response:**
+
 ```ruby
 {
-  "details""=>"{
-  "name""=>""Lodz Wladyslaw Reymont Airport",
-  "code""=>"{
-    "iata""=>""LCJ",
-    "icao""=>""EPLL"
-  },
-  "position""=>"{
-    "latitude"=>51.721882,
-    "longitude"=>19.39813,
-    "altitude"=>604,
-    "country""=>"{
-      "id""=>nil",
-      "name""=>""Poland",
-      "code""=>""POL"
+  "details" => {
+    "name" => "Lodz Wladyslaw Reymont Airport",
+    "code" => {
+      "iata" => "LCJ",
+      "icao" => "EPLL"
     },
-    "region""=>"{
-      "city""=>""Lodz"
-    }
-  },
-  ...
+    "position" => {
+      "latitude" => 51.721882,
+      "longitude" => 19.39813,
+      "altitude" => 604,
+      "country" => {
+        "id" => nil,
+        "name" => "Poland",
+        "code" => "POL"
+      },
+      "region" => {
+        "city" => "Lodz"
+      }
+    },
+    # ...
   }
 }
 ```
 
-### Airports
-```ruby
-airport = "LAX"
-FlightRadar.airports
-```
-**Sample response:**
-```ruby
-[
-   {
-      "name""=>""A Coruna Airport",
-      "iata""=>""LCG",
-      "icao""=>""LECO",
-      "lat"=>43.302059,
-      "lon"=>-8.37725,
-      "country""=>""Spain",
-      "alt"=>326
-   },
-   {
-      "name""=>""Aachen Merzbruck Airport",
-      "iata""=>""AAH",
-      "icao""=>""EDKA",
-      "lat"=>50.823051,
-      "lon"=>6.186111,
-      "country""=>""Germany",
-      "alt"=>623
-   },
-  ...
-]
-```
-
 ### Zones
+
 ```ruby
 FlightRadar.zones
 ```
+
 **Sample response:**
 ```ruby
 {
-  "europe""=>"{
-      "tl_y"=>72.57,
-      "tl_x"=>-16.96,
-      "br_y"=>33.57,
-      "br_x"=>53.05,
-      "subzones""=>"{
-          "poland""=>"{
-          "tl_y"=>56.86,
-          "tl_x"=>11.06,
-          "br_y"=>48.22,
-          "br_x"=>28.26
-        },
-          "germany""=>"{
-          "tl_y"=>57.92,
-          "tl_x"=>1.81,
-          "br_y"=>45.81,
-          "br_x"=>16.83
-          },
-          ...
-      }
+  "europe" => {
+    "tl_y" => 72.57,
+    "tl_x" => -16.96,
+    "br_y" => 33.57,
+    "br_x" => 53.05,
+    "subzones" => {
+      "poland" => {
+        "tl_y" => 56.86,
+        "tl_x" => 11.06,
+        "br_y" => 48.22,
+        "br_x" => 28.26
+      },
+      "germany" => {
+        "tl_y" => 57.92,
+        "tl_x" => 1.81,
+        "br_y" => 45.81,
+        "br_x" => 16.83
+      },
+      # ...
     }
+  }
 }
 ```
 
 ### Flights
+
 ```ruby
 FlightRadar.flights
 ```
 
 **Sample response:**
+
 ```ruby
 [
-    "<(GRND)  - Altitude":"0 - Ground Speed":"146 - Heading":146>,
-    "<(DRON) TEST4A - Altitude":"374 - Ground Speed":"1 - Heading":1>,
-    "<(GLID) STM32 - Altitude":"2290 - Ground Speed":"1 - Heading":1>,
-    "<()  - Altitude":"508 - Ground Speed":"7 - Heading":7>,
-    "<(B763) N142FE - Altitude":"0 - Ground Speed":"0 - Heading":0>,
-    "<(GRND)  - Altitude":"0 - Ground Speed":"278 - Heading":278>,
-    "<(GLID) OM-2709 - Altitude":"1236 - Ground Speed":"1 - Heading":1>,
-    "<(B763) N196FE - Altitude":"0 - Ground Speed":"0 - Heading":0>,
-    "<(B77L) N869FD - Altitude":"0 - Ground Speed":"0 - Heading":0>,
-    "<(B763) N111FE - Altitude":"0 - Ground Speed":"0 - Heading":0>,
-    "<(B763) N193FE - Altitude":"0 - Ground Speed":"0 - Heading":0>,
-    ...
+  "<(GRND) - Altitude: 0 - Ground Speed: 146 - Heading: 146>",
+  "<(DRON) TEST4A - Altitude: 374 - Ground Speed: 1 - Heading: 1>",
+  "<(GLID) STM32 - Altitude: 2290 - Ground Speed: 1 - Heading: 1>",
+  "<() - Altitude: 508 - Ground Speed: 7 - Heading: 7>",
+  "<(B763) N142FE - Altitude: 0 - Ground Speed: 0 - Heading: 0>",
+  "<(GRND) - Altitude: 0 - Ground Speed: 278 - Heading: 278>",
+  "<(GLID) OM-2709 - Altitude: 1236 - Ground Speed: 1 - Heading: 1>",
+  "<(B763) N196FE - Altitude: 0 - Ground Speed: 0 - Heading: 0>",
+  "<(B77L) N869FD - Altitude: 0 - Ground Speed: 0 - Heading: 0>",
+  "<(B763) N111FE - Altitude: 0 - Ground Speed: 0 - Heading: 0>",
+  "<(B763) N193FE - Altitude: 0 - Ground Speed: 0 - Heading: 0>",
+# ...
 ]
 ```
 
-
-
 ### Flight Details
+
 ```ruby
 flight_id = FlightRadar.flights.sample.id
 FlightRadar.flight_details(flight_id)
 ```
 
 **Sample response:**
+
 ```ruby
 {
-   "identification""=>"{
-      "id""=>""2aaadc48",
-      "row"=>5175915984,
-      "number""=>"{
-         "default""=>""F980",
-         "alternative""=>nil"
+  "identification" => {
+    "id" => "2aaadc48",
+    "row" => 5175915984,
+    "number" => {
+      "default" => "F980",
+      "alternative" => nil
+    },
+    "callsign" => "FFT80"
+  },
+  "status" => {
+    "live" => true,
+    "text" => "Estimated- 14:01",
+    "icon" => "green",
+    "estimated" => nil,
+    "ambiguous" => false,
+    "generic" => {
+      "status" => {
+        "text" => "estimated",
+        "color" => "green",
+        "type" => "arrival"
       },
-      "callsign""=>""FFT80"
-   },
-   "status""=>"{
-      "live""=>true",
-      "text""=>""Estimated- 14:01",
-      "icon""=>""green",
-      "estimated""=>nil",
-      "ambiguous""=>false",
-      "generic""=>"{
-         "status""=>"{
-            "text""=>""estimated",
-            "color""=>""green",
-            "type""=>""arrival"
-         },
-         "eventTime""=>"{
-            "utc"=>1643652087,
-            "local"=>1643637687
-         }
+      "eventTime" => {
+        "utc" => 1643652087,
+        "local" => 1643637687
       }
-   },
-    ...
+    }
+  },
+  # ...
 }
 ```
 
 ### Flights by airline
+
 ```ruby
 airline = "LOT"
 FlightRadar.flights(airline: airline)
 ```
 
 **Sample response:**
+
 ```ruby
 [
-  "<(B789) SP-LSG - Altitude":"39992 - Ground Speed":"451 - Heading":451>,
-  "<(B788) SP-LRA - Altitude":"38975 - Ground Speed":"537 - Heading":537>,
-  "<(B788) SP-LRB - Altitude":"38000 - Ground Speed":"463 - Heading":463>,
-  "<(E195) SP-LNF - Altitude":"31675 - Ground Speed":"420 - Heading":420>,
-  "<(B38M) SP-LVF - Altitude":"38000 - Ground Speed":"460 - Heading":460>,
-  "<(E195) SP-LNB - Altitude":"22475 - Ground Speed":"366 - Heading":366>,
-  "<(B789) SP-LSF - Altitude":"36000 - Ground Speed":"440 - Heading":440>,
-  ...
+  "<(B789) SP-LSG - Altitude: 39992 - Ground Speed: 451 - Heading: 451>",
+  "<(B788) SP-LRA - Altitude: 38975 - Ground Speed: 537 - Heading: 537>",
+  "<(B788) SP-LRB - Altitude: 38000 - Ground Speed: 463 - Heading: 463>",
+  "<(E195) SP-LNF - Altitude: 31675 - Ground Speed: 420 - Heading: 420>",
+  "<(B38M) SP-LVF - Altitude: 38000 - Ground Speed: 460 - Heading: 460>",
+  "<(E195) SP-LNB - Altitude: 22475 - Ground Speed: 366 - Heading: 366>",
+  "<(B789) SP-LSF - Altitude: 36000 - Ground Speed: 440 - Heading: 440>",
+# ...
 ]
 ```
 
 ### Flights by bounds
+
 ```ruby
 zone = FlightRadar.zones["oceania"]
 bounds = FlightRadar.bounds(zone)
@@ -221,45 +222,48 @@ FlightRadar.flights(bounds: bounds)
 ```
 
 **Sample response:**
+
 ```ruby
 [
-   "<(B788) VT-ANP - Altitude":"41000 - Ground Speed":"494 - Heading":494>,
-   "<(B738) VT-AXZ - Altitude":"37000 - Ground Speed":"436 - Heading":436>,
-   "<(B772) PH-BQA - Altitude":"32000 - Ground Speed":"496 - Heading":496>,
-   "<(A388) 9V-SKS - Altitude":"33996 - Ground Speed":"498 - Heading":498>,
-   "<(B77L) A7-BFY - Altitude":"32000 - Ground Speed":"478 - Heading":478>,
-   "<(B78X) 9V-SCA - Altitude":"38996 - Ground Speed":"514 - Heading":514>,
-   "<(B77W) A6-ENU - Altitude":"34000 - Ground Speed":"504 - Heading":504>,
-   "<(A359) OH-LWF - Altitude":"40004 - Ground Speed":"476 - Heading":476>,
-  ...
+  "<(B788) VT-ANP - Altitude: 41000 - Ground Speed: 494 - Heading: 494>",
+  "<(B738) VT-AXZ - Altitude: 37000 - Ground Speed: 436 - Heading: 436>",
+  "<(B772) PH-BQA - Altitude: 32000 - Ground Speed: 496 - Heading: 496>",
+  "<(A388) 9V-SKS - Altitude: 33996 - Ground Speed: 498 - Heading: 498>",
+  "<(B77L) A7-BFY - Altitude: 32000 - Ground Speed: 478 - Heading: 478>",
+  "<(B78X) 9V-SCA - Altitude: 38996 - Ground Speed: 514 - Heading: 514>",
+  "<(B77W) A6-ENU - Altitude: 34000 - Ground Speed: 504 - Heading: 504>",
+  "<(A359) OH-LWF - Altitude: 40004 - Ground Speed: 476 - Heading: 476>",
+# ...
 ]
 ```
 
 
 ### Airline logo
+
 ```ruby
 iata = "TK"
 icao = "THY"
-FlightRadar.logo(iata, icao)
+FlightRadar.airline_logo(iata, icao)
 ```
 
 **Sample response:**
+
 ```ruby
-["https://cdn.flightradar24.com/assets/airlines/logotypes/TK_THY.png", "https://www.flightradar24.com/static/images/data/operators/THY_logo0.png"]
+%w[https://cdn.flightradar24.com/assets/airlines/logotypes/TK_THY.png https://www.flightradar24.com/static/images/data/operators/THY_logo0.png]
 ```
 
 
 ### Country flag
+
 ```ruby
 FlightRadar.country_flag("Poland")
 ```
 
 **Sample response:**
+
 ```ruby
 "https://www.flightradar24.com/static/images/data/flags-small/poland.gif"
 ```
-
-
 
 ## Development
 
