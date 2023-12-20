@@ -6,7 +6,7 @@ require_relative "flight_radar/flight"
 
 # FlightRadar module for sending requests to FlightRadar24 API
 module FlightRadar
-  VERSION = "0.1.0"
+  VERSION = "0.2.0"
 
   module_function
 
