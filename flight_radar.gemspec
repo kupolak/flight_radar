@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'flight_radar'
-  spec.version       = '0.2.0'
+  spec.version       = '0.2.1'
   spec.authors       = ['Jakub Polak']
   spec.email         = ['jakub.polak.vz@gmail.com']
 
