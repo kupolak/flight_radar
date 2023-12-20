@@ -27,4 +27,4 @@ jobs:
           bundle install
 
       - name: Run RSpec tests
-        run: bundle exec rake spec
+        run: bundle exec rake

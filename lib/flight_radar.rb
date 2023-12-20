@@ -1,34 +1,34 @@
 # frozen_string_literal: true
 
-require_relative "flight_radar/core"
-require_relative "flight_radar/request"
-require_relative "flight_radar/flight"
+require_relative 'flight_radar/core'
+require_relative 'flight_radar/request'
+require_relative 'flight_radar/flight'
 
 # FlightRadar module for sending requests to FlightRadar24 API
 module FlightRadar
-  VERSION = "0.2.0"
+  VERSION = '0.2.0'
 
   module_function
 
   @config = {
-    "faa": "1",
-    "satellite": "1",
-    "mlat": "1",
-    "flarm": "1",
-    "adsb": "1",
-    "gnd": "1",
-    "air": "1",
-    "vehicles": "1",
-    "estimated": "1",
-    "maxage": "14400",
-    "gliders": "1",
-    "stats": "1",
-    "limit": "5000"
+    faa: '1',
+    satellite: '1',
+    mlat: '1',
+    flarm: '1',
+    adsb: '1',
+    gnd: '1',
+    air: '1',
+    vehicles: '1',
+    estimated: '1',
+    maxage: '14400',
+    gliders: '1',
+    stats: '1',
+    limit: '5000'
   }
 
   def airlines
     request = Request.new(Core::AIRLINES_DATA_URL, Core::JSON_HEADERS)
-    request.content["rows"]
+    request.content['rows']
   end
 
   def airline_logo(iata, icao)
@@ -50,15 +50,15 @@ module FlightRadar
 
   def airports
     request = Request.new(Core::AIRPORTS_DATA_URL, Core::JSON_HEADERS)
-    request.content["rows"]
+    request.content['rows']
   end
 
   def bounds(zone)
-    "#{zone["tl_y"]},#{zone["br_y"]},#{zone["tl_x"]},#{zone["br_x"]}"
+    "#{zone['tl_y']},#{zone['br_y']},#{zone['tl_x']},#{zone['br_x']}"
   end
 
   def country_flag(country)
-    "#{Core::COUNTRY_FLAG_URL}#{country.downcase.gsub(" ", "-")}.gif"
+    "#{Core::COUNTRY_FLAG_URL}#{country.downcase.gsub(' ', '-')}.gif"
   end
 
   def flight_details(flight_id)
@@ -66,24 +66,21 @@ module FlightRadar
   end
 
   def flights(params = {})
-    request_params = @config
+    request_params = @config.dup
     request_params[:airline] = params[:airline] if params[:airline]
-    request_params[:bounds] = params[:bounds].gsub(",", "%2C") if params[:bounds]
+    request_params[:bounds] = params[:bounds]&.gsub(',', '%2C')
 
-    request = Request.new(Core::REAL_TIME_FLIGHT_TRACKER_DATA_URL, Core::JSON_HEADERS, request_params)
-    response = request.content
+    response = Request.new(Core::REAL_TIME_FLIGHT_TRACKER_DATA_URL, Core::JSON_HEADERS, request_params).content
+
     %w[full_count version stats].each { |k| response.delete(k) }
-    flights = []
-    response.each do |flight_id, flight_details|
-      flights.append(Flight.new(flight_id, flight_details))
-    end
-    flights
+
+    response.map { |flight_id, flight_details| Flight.new(flight_id, flight_details) }
   end
 
   def zones
     request = Request.new(Core::ZONES_DATA_URL, Core::JSON_HEADERS)
     request = request.content
-    request.delete("version")
+    request.delete('version')
     request
   end
 end
