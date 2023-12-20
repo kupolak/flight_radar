@@ -39,6 +39,13 @@ class Request
     @response.code
   end
 
+  # Checks if the HTTP response code indicates success.
+  #
+  # @return [Boolean] Returns true if the response code is within the range 200 to 299 (inclusive), indicating success.
+  def success?
+    (200..299).include?(@response.code)
+  end
+
   private
 
   # Sends an HTTP GET request using the specified URL, headers, and parameters.
