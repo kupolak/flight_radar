@@ -15,6 +15,7 @@
     - [Flights by Bounds](#flights-by-bounds)
     - [Airline Logo](#airline-logo)
     - [Country Flag](#country-flag)
+- [Documentation](#documentation)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
@@ -264,6 +265,10 @@ FlightRadar.country_flag("Poland")
 ```ruby
 "https://www.flightradar24.com/static/images/data/flags-small/poland.gif"
 ```
+
+## Documentation
+
+Live documentation of the gem is available [at this GitHub page](https://kupolak.github.io/flight_radar/).
 
 ## Development
 
