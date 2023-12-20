@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: FlightRadar
+  
+    &mdash; Documentation by YARD 0.9.34
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "FlightRadar";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (F)</a> &raquo;
+    
+    
+    <span class="title">FlightRadar</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: FlightRadar
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/flight_radar.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>FlightRadar module for sending requests to FlightRadar24 API</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.2.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#airline_logo-class_method" title="airline_logo (class method)">.<strong>airline_logo</strong>(iata, icao)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves airline logos based on IATA and ICAO codes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#airlines-class_method" title="airlines (class method)">.<strong>airlines</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves a list of airlines.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#airport-class_method" title="airport (class method)">.<strong>airport</strong>(code)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves traffic statistics for a specific airport.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#airports-class_method" title="airports (class method)">.<strong>airports</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves a list of airports.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bounds-class_method" title="bounds (class method)">.<strong>bounds</strong>(zone)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Converts zone information into bounds string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#country_flag-class_method" title="country_flag (class method)">.<strong>country_flag</strong>(country)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves the URL of a country flag based on the country name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flight_details-class_method" title="flight_details (class method)">.<strong>flight_details</strong>(flight_id)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves detailed information about a specific flight.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flights-class_method" title="flights (class method)">.<strong>flights</strong>(params = {})  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves a list of flights based on specified parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#zones-class_method" title="zones (class method)">.<strong>zones</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieves information about flight tracking zones.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="airline_logo-class_method">
+  
+    .<strong>airline_logo</strong>(iata, icao)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves airline logos based on IATA and ICAO codes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iata</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The IATA code of the airline.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>icao</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The ICAO code of the airline.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An array containing URLs of airline logos.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_airline_logo'>airline_logo</span><span class='lparen'>(</span><span class='id identifier rubyid_iata'>iata</span><span class='comma'>,</span> <span class='id identifier rubyid_icao'>icao</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_first_logo_url'>first_logo_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#AIRLINE_LOGO_URL-constant" title="Core::AIRLINE_LOGO_URL (constant)">AIRLINE_LOGO_URL</a></span></span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_iata'>iata</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_icao'>icao</span><span class='embexpr_end'>}</span><span class='tstring_content'>.png</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_second_logo_url'>second_logo_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#ALTERNATIVE_AIRLINE_LOGO_URL-constant" title="Core::ALTERNATIVE_AIRLINE_LOGO_URL (constant)">ALTERNATIVE_AIRLINE_LOGO_URL</a></span></span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_icao'>icao</span><span class='embexpr_end'>}</span><span class='tstring_content'>_logo0.png</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># Check the availability of logos and return URLs.
+</span>  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_first_request'>first_request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_first_logo_url'>first_logo_url</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#IMAGE_HEADERS-constant" title="Core::IMAGE_HEADERS (constant)">IMAGE_HEADERS</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_second_request'>second_request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_second_logo_url'>second_logo_url</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#IMAGE_HEADERS-constant" title="Core::IMAGE_HEADERS (constant)">IMAGE_HEADERS</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_logo_url'>first_logo_url</span> <span class='kw'>if</span> <span class='id identifier rubyid_first_request'>first_request</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_second_logo_url'>second_logo_url</span> <span class='kw'>if</span> <span class='id identifier rubyid_second_request'>second_request</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="airlines-class_method">
+  
+    .<strong>airlines</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves a list of airlines.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An array containing information about airlines.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_airlines'>airlines</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#AIRLINES_DATA_URL-constant" title="Core::AIRLINES_DATA_URL (constant)">AIRLINES_DATA_URL</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#JSON_HEADERS-constant" title="Core::JSON_HEADERS (constant)">JSON_HEADERS</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rows</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="airport-class_method">
+  
+    .<strong>airport</strong>(code)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves traffic statistics for a specific airport.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>code</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The code of the airport.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing traffic statistics for the specified airport.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_airport'>airport</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+  <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://data-live.flightradar24.com/airports/traffic-stats/?airport=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_code'>code</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parsed_response'>parsed_response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="airports-class_method">
+  
+    .<strong>airports</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves a list of airports.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An array containing information about airports.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_airports'>airports</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#AIRPORTS_DATA_URL-constant" title="Core::AIRPORTS_DATA_URL (constant)">AIRPORTS_DATA_URL</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#JSON_HEADERS-constant" title="Core::JSON_HEADERS (constant)">JSON_HEADERS</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rows</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bounds-class_method">
+  
+    .<strong>bounds</strong>(zone)  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Converts zone information into bounds string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>zone</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing zone information.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A string containing bounds information.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='lparen'>(</span><span class='id identifier rubyid_zone'>zone</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zone'>zone</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tl_y</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zone'>zone</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>br_y</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zone'>zone</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tl_x</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zone'>zone</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>br_x</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="country_flag-class_method">
+  
+    .<strong>country_flag</strong>(country)  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves the URL of a country flag based on the country name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>country</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the country.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The URL of the country flag.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_country_flag'>country_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_country'>country</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#COUNTRY_FLAG_URL-constant" title="Core::COUNTRY_FLAG_URL (constant)">COUNTRY_FLAG_URL</a></span></span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_country'>country</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.gif</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flight_details-class_method">
+  
+    .<strong>flight_details</strong>(flight_id)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves detailed information about a specific flight.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>flight_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The ID of the flight.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing detailed information about the specified flight.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flight_details'>flight_details</span><span class='lparen'>(</span><span class='id identifier rubyid_flight_id'>flight_id</span><span class='rparen'>)</span>
+  <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://data-live.flightradar24.com/clickhandler/?flight=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_flight_id'>flight_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parsed_response'>parsed_response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flights-class_method">
+  
+    .<strong>flights</strong>(params = {})  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves a list of flights based on specified parameters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>(optional) Parameters for filtering flights.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An array containing Flight objects.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flights'>flights</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request_params'>request_params</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='id identifier rubyid_request_params'>request_params</span><span class='lbracket'>[</span><span class='symbol'>:airline</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:airline</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:airline</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_request_params'>request_params</span><span class='lbracket'>[</span><span class='symbol'>:bounds</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:bounds</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%2C</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#REAL_TIME_FLIGHT_TRACKER_DATA_URL-constant" title="Core::REAL_TIME_FLIGHT_TRACKER_DATA_URL (constant)">REAL_TIME_FLIGHT_TRACKER_DATA_URL</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#JSON_HEADERS-constant" title="Core::JSON_HEADERS (constant)">JSON_HEADERS</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_request_params'>request_params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_content'><span class='object_link'><a href="Request.html#content-instance_method" title="Request#content (method)">content</a></span></span>
+
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>full_count</span><span class='words_sep'> </span><span class='tstring_content'>version</span><span class='words_sep'> </span><span class='tstring_content'>stats</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_flight_id'>flight_id</span><span class='comma'>,</span> <span class='id identifier rubyid_flight_details'>flight_details</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="Flight.html" title="Flight (class)">Flight</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Flight.html#initialize-instance_method" title="Flight#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_flight_id'>flight_id</span><span class='comma'>,</span> <span class='id identifier rubyid_flight_details'>flight_details</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="zones-class_method">
+  
+    .<strong>zones</strong>  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieves information about flight tracking zones.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing information about flight tracking zones.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flight_radar.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_zones'>zones</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#ZONES_DATA_URL-constant" title="Core::ZONES_DATA_URL (constant)">ZONES_DATA_URL</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Core.html" title="Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Core.html#JSON_HEADERS-constant" title="Core::JSON_HEADERS (constant)">JSON_HEADERS</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span>
+  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>version</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Dec 21 00:16:52 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>

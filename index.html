@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.34
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><p><img src="https://www.flightradar24.com/blog/wp-content/uploads/2020/04/Hi_Res_Transparent-2.jpg" width="200"/></p>
+
+<p><strong>Fetch aircraft data from Flightradar24.</strong></p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#airlines">Airlines</a></li>
+<li><a href="#airport">Airport</a></li>
+<li><a href="#zones">Zones</a></li>
+<li><a href="#flights">Flights</a></li>
+<li><a href="#flight-details">Flight Details</a></li>
+<li><a href="#flights-by-airline">Flights by Airline</a></li>
+<li><a href="#flights-by-bounds">Flights by Bounds</a></li>
+<li><a href="#airline-logo">Airline Logo</a></li>
+<li><a href="#country-flag">Country Flag</a></li>
+</ul></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#code-of-conduct">Code of Conduct</a></li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>flight_radar</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle install
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install flight_radar
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="airlines">Airlines</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_airlines'><span class='object_link'><a href="FlightRadar.html#airlines-class_method" title="FlightRadar.airlines (method)">airlines</a></span></span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
+  <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>21 Air</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Code</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2I</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ICAO</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CSB</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>25Only Aviation</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Code</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ICAO</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ONY</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>40-Mile Air</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Code</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Q5</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ICAO</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MLA</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
+<span class='comment'># ...
+</span><span class='rbracket'>]</span>
+</code></pre>
+
+<h3 id="airport">Airport</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_airport'>airport</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LAX</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_airport'><span class='object_link'><a href="FlightRadar.html#airport-class_method" title="FlightRadar.airport (method)">airport</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_airport'>airport</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>details</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lodz Wladyslaw Reymont Airport</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>code</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>iata</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LCJ</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>icao</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EPLL</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>position</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>latitude</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>51.721882</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>longitude</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>19.39813</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>altitude</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>604</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Poland</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>code</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>POL</span><span class='tstring_end'>&quot;</span></span>
+      <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>region</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>city</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lodz</span><span class='tstring_end'>&quot;</span></span>
+      <span class='rbrace'>}</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='comment'># ...
+</span>  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+</code></pre>
+
+<h3 id="zones">Zones</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_zones'><span class='object_link'><a href="FlightRadar.html#zones-class_method" title="FlightRadar.zones (method)">zones</a></span></span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>europe</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>72.57</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='float'>16.96</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>33.57</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>53.05</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>subzones</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>poland</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>56.86</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>11.06</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>48.22</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>28.26</span>
+      <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>germany</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>57.92</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tl_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>1.81</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_y</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>45.81</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>br_x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='float'>16.83</span>
+      <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='comment'># ...
+</span>    <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+</code></pre>
+
+<h3 id="flights">Flights</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_flights'><span class='object_link'><a href="FlightRadar.html#flights-class_method" title="FlightRadar.flights (method)">flights</a></span></span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(GRND) - Altitude: 0 - Ground Speed: 146 - Heading: 146&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(DRON) TEST4A - Altitude: 374 - Ground Speed: 1 - Heading: 1&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(GLID) STM32 - Altitude: 2290 - Ground Speed: 1 - Heading: 1&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;() - Altitude: 508 - Ground Speed: 7 - Heading: 7&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B763) N142FE - Altitude: 0 - Ground Speed: 0 - Heading: 0&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(GRND) - Altitude: 0 - Ground Speed: 278 - Heading: 278&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(GLID) OM-2709 - Altitude: 1236 - Ground Speed: 1 - Heading: 1&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B763) N196FE - Altitude: 0 - Ground Speed: 0 - Heading: 0&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B77L) N869FD - Altitude: 0 - Ground Speed: 0 - Heading: 0&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B763) N111FE - Altitude: 0 - Ground Speed: 0 - Heading: 0&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B763) N193FE - Altitude: 0 - Ground Speed: 0 - Heading: 0&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='comment'># ...
+</span><span class='rbracket'>]</span>
+</code></pre>
+
+<h3 id="flight-details">Flight Details</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_flight_id'>flight_id</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_flights'><span class='object_link'><a href="FlightRadar.html#flights-class_method" title="FlightRadar.flights (method)">flights</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+<span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_flight_details'><span class='object_link'><a href="FlightRadar.html#flight_details-class_method" title="FlightRadar.flight_details (method)">flight_details</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_flight_id'>flight_id</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>identification</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2aaadc48</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>row</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>5175915984</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>number</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>F980</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>alternative</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>nil</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>callsign</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FFT80</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>status</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>live</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Estimated- 14:01</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>icon</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>green</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>estimated</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ambiguous</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>generic</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>status</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>estimated</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>green</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>arrival</span><span class='tstring_end'>&quot;</span></span>
+      <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>eventTime</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>utc</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>1643652087</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>local</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>1643637687</span>
+      <span class='rbrace'>}</span>
+    <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='comment'># ...
+</span><span class='rbrace'>}</span>
+</code></pre>
+
+<h3 id="flights-by-airline">Flights by airline</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_airline'>airline</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LOT</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_flights'><span class='object_link'><a href="FlightRadar.html#flights-class_method" title="FlightRadar.flights (method)">flights</a></span></span><span class='lparen'>(</span><span class='label'>airline:</span> <span class='id identifier rubyid_airline'>airline</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B789) SP-LSG - Altitude: 39992 - Ground Speed: 451 - Heading: 451&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B788) SP-LRA - Altitude: 38975 - Ground Speed: 537 - Heading: 537&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B788) SP-LRB - Altitude: 38000 - Ground Speed: 463 - Heading: 463&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(E195) SP-LNF - Altitude: 31675 - Ground Speed: 420 - Heading: 420&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B38M) SP-LVF - Altitude: 38000 - Ground Speed: 460 - Heading: 460&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(E195) SP-LNB - Altitude: 22475 - Ground Speed: 366 - Heading: 366&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B789) SP-LSF - Altitude: 36000 - Ground Speed: 440 - Heading: 440&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='comment'># ...
+</span><span class='rbracket'>]</span>
+</code></pre>
+
+<h3 id="flights-by-bounds">Flights by bounds</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_zone'>zone</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_zones'><span class='object_link'><a href="FlightRadar.html#zones-class_method" title="FlightRadar.zones (method)">zones</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>oceania</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_bounds'>bounds</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bounds'><span class='object_link'><a href="FlightRadar.html#bounds-class_method" title="FlightRadar.bounds (method)">bounds</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_zone'>zone</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_flights'><span class='object_link'><a href="FlightRadar.html#flights-class_method" title="FlightRadar.flights (method)">flights</a></span></span><span class='lparen'>(</span><span class='label'>bounds:</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B788) VT-ANP - Altitude: 41000 - Ground Speed: 494 - Heading: 494&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B738) VT-AXZ - Altitude: 37000 - Ground Speed: 436 - Heading: 436&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B772) PH-BQA - Altitude: 32000 - Ground Speed: 496 - Heading: 496&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(A388) 9V-SKS - Altitude: 33996 - Ground Speed: 498 - Heading: 498&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B77L) A7-BFY - Altitude: 32000 - Ground Speed: 478 - Heading: 478&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B78X) 9V-SCA - Altitude: 38996 - Ground Speed: 514 - Heading: 514&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(B77W) A6-ENU - Altitude: 34000 - Ground Speed: 504 - Heading: 504&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;(A359) OH-LWF - Altitude: 40004 - Ground Speed: 476 - Heading: 476&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='comment'># ...
+</span><span class='rbracket'>]</span>
+</code></pre>
+
+<h3 id="airline-logo">Airline logo</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_iata'>iata</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TK</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_icao'>icao</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>THY</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_airline_logo'><span class='object_link'><a href="FlightRadar.html#airline_logo-class_method" title="FlightRadar.airline_logo (method)">airline_logo</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_iata'>iata</span><span class='comma'>,</span> <span class='id identifier rubyid_icao'>icao</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='qwords_beg'>%w[</span><span class='tstring_content'>https://cdn.flightradar24.com/assets/airlines/logotypes/TK_THY.png</span><span class='words_sep'> </span><span class='tstring_content'>https://www.flightradar24.com/static/images/data/operators/THY_logo0.png</span><span class='tstring_end'>]</span></span>
+</code></pre>
+
+<h3 id="country-flag">Country flag</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="FlightRadar.html" title="FlightRadar (module)">FlightRadar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_country_flag'><span class='object_link'><a href="FlightRadar.html#country_flag-class_method" title="FlightRadar.country_flag (method)">country_flag</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Poland</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p><strong>Sample response:</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://www.flightradar24.com/static/images/data/flags-small/poland.gif</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<h2 id="development">Development</h2>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and the created tag, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/kupolak/flight_radar">https://github.com/kupolak/flight_radar</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/%5BUSERNAME%5D/flight_radar/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+
+<h2 id="license">License</h2>
+
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+<h2 id="code-of-conduct">Code of Conduct</h2>
+
+<p>Everyone interacting in the FlightRadar project&#39;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/kupolak/flight_radar/blob/main/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu Dec 21 00:16:52 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>
