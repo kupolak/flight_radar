@@ -7,7 +7,6 @@ require_relative 'flight_radar/flight'
 
 # FlightRadar module for sending requests to FlightRadar24 API
 module FlightRadar
-
   module_function
 
   # Default configuration parameters for FlightRadar requests.
