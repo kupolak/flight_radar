@@ -120,4 +120,47 @@ module FlightRadar
     content.delete('version')
     content
   end
+
+  # Searches for flights, airports, and airlines.
+  #
+  # @param query [String] The search query (e.g., flight number, airport code, airline name).
+  # @param limit [Integer] (optional) Maximum number of results to return (default: 50).
+  # @return [Hash] A hash containing search results grouped by type.
+  def search(query, limit = 50)
+    url = "#{Core::SEARCH_DATA_URL}?query=#{query}&limit=#{limit}"
+    request = Request.new(url, Core::JSON_HEADERS)
+    request.content
+  end
+
+  # Retrieves a list of the most tracked flights.
+  #
+  # @return [Hash] A hash containing information about the most tracked flights.
+  def most_tracked
+    request = Request.new(Core::MOST_TRACKED_URL, Core::JSON_HEADERS)
+    request.content
+  end
+
+  # Retrieves playback data for a specific flight (alias for flight_details with version parameter).
+  #
+  # @param flight_id [String] The ID of the flight.
+  # @return [Hash] A hash containing detailed playback information including flight path.
+  def flight_playback(flight_id)
+    flight_details(flight_id)
+  end
+
+  # Retrieves information about a specific aircraft by registration number.
+  #
+  # @param registration [String] The aircraft registration number (e.g., "N12345").
+  # @return [Hash] A hash containing search results for the aircraft.
+  def aircraft(registration)
+    search(registration)
+  end
+
+  # Retrieves fleet information for a specific airline.
+  #
+  # @param airline_code [String] The airline code (IATA or ICAO).
+  # @return [Hash] A hash containing information about the airline's fleet.
+  def airline_fleet(airline_code)
+    search(airline_code)
+  end
 end

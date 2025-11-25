@@ -17,16 +17,19 @@ module Core
   MOST_TRACKED_URL = "#{FLIGHT_RADAR_BASE_URL}/flights/most-tracked".freeze
 
   # Search data URL
-  SEARCH_DATA_URL = "#{FLIGHT_RADAR_BASE_URL}/v1/search/web/find?query={}&limit=50".freeze
+  SEARCH_DATA_URL = "#{FLIGHT_RADAR_BASE_URL}/v1/search/web/find".freeze
 
   # Flights data URLs.
   REAL_TIME_FLIGHT_TRACKER_DATA_URL = "#{DATA_CLOUD_BASE_URL}/zones/fcgi/feed.js".freeze
   FLIGHT_DATA_URL = "#{DATA_LIVE_BASE_URL}/clickhandler/?flight={}".freeze
+  FLIGHT_PLAYBACK_URL = "#{DATA_LIVE_BASE_URL}/clickhandler/".freeze
 
   # Airports data URLs.
   API_AIRPORT_DATA_URL = "#{API_FLIGHT_RADAR_BASE_URL}/airport.json".freeze
   AIRPORT_DATA_URL = "#{FLIGHT_RADAR_BASE_URL}/airports/traffic-stats/?airport=".freeze
   AIRPORTS_DATA_URL = "#{FLIGHT_RADAR_BASE_URL}/_json/airports.php".freeze
+  AIRPORT_ARRIVALS_URL = "#{FLIGHT_RADAR_BASE_URL}/data/airports/".freeze
+  AIRPORT_DEPARTURES_URL = "#{FLIGHT_RADAR_BASE_URL}/data/airports/".freeze
 
   # Airlines data URL.
   AIRLINES_DATA_URL = "#{FLIGHT_RADAR_BASE_URL}/_json/airlines.php".freeze
