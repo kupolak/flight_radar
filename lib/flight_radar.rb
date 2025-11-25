@@ -58,7 +58,9 @@ module FlightRadar
   # @param code [String] The code of the airport.
   # @return [Hash] A hash containing traffic statistics for the specified airport.
   def airport(code)
-    HTTParty.get("https://data-live.flightradar24.com/airports/traffic-stats/?airport=#{code}").parsed_response
+    url = "#{Core::DATA_LIVE_BASE_URL}/airports/traffic-stats/?airport=#{code}"
+    request = Request.new(url, Core::JSON_HEADERS)
+    request.content
   end
 
   # Retrieves a list of airports.

@@ -41,7 +41,6 @@ module Core
   AIRLINE_LOGO_URL = "#{CDN_FLIGHT_RADAR_BASE_URL}/assets/airlines/logotypes/".freeze
   ALTERNATIVE_AIRLINE_LOGO_URL = "#{FLIGHT_RADAR_BASE_URL}/static/images/data/operators/".freeze
 
-  # rubocop:disable Style/MutableConstant
   HEADERS = {
     'accept-encoding': 'gzip, br',
     'accept-language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
@@ -54,12 +53,9 @@ module Core
     'user-agent': 'Mozilla/5.0 (Windows NT 6.1)
                    AppleWebKit/537.36 (KHTML, like Gecko)
                    Chrome/87.0.4280.88 Safari/537.36'
-  }
-  # rubocop:enable Style/MutableConstant
+  }.freeze
 
-  JSON_HEADERS = HEADERS
-  JSON_HEADERS['accept'] = 'application/json'
+  JSON_HEADERS = HEADERS.merge('accept' => 'application/json').freeze
 
-  IMAGE_HEADERS = HEADERS
-  IMAGE_HEADERS['accept'] = 'image/gif, image/jpg, image/jpeg, image/png'
+  IMAGE_HEADERS = HEADERS.merge('accept' => 'image/gif, image/jpg, image/jpeg, image/png').freeze
 end

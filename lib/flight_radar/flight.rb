@@ -46,7 +46,7 @@ class Flight
     "<(#{@aircraft_code}) #{@registration}
     - Altitude: #{@altitude}
     - Ground Speed: #{@ground_speed}
-    - Heading: #{@ground_speed}>"
+    - Heading: #{@heading}>"
   end
 
   # Returns a formatted string representing the altitude of the flight.
