@@ -1,20 +1,26 @@
 # frozen_string_literal: true
 
+require_relative 'lib/flight_radar'
+
 Gem::Specification.new do |spec|
   spec.name          = 'flight_radar'
-  spec.version       = '0.2.1'
+  spec.version       = FlightRadar::VERSION
   spec.authors       = ['Jakub Polak']
   spec.email         = ['jakub.polak.vz@gmail.com']
 
   spec.summary       = 'Ruby gem for fetching aircraft data from Flightradar24'
-  spec.description   = 'To use this API see more information at: https://www.flightradar24.com/terms-and-conditions'
+  spec.description   = 'Unofficial Ruby wrapper for Flightradar24 API. Fetch real-time flight data, ' \
+                       'airport statistics, airline information, and more. For terms see: ' \
+                       'https://www.flightradar24.com/terms-and-conditions'
   spec.homepage      = 'https://github.com/kupolak/flight_radar'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.2.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/kupolak/flight_radar'
-  spec.metadata['changelog_uri'] = 'https://github.com/kupolak/flight_radar/blob/main/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = spec.homepage
+  spec.metadata['changelog_uri'] = "#{spec.homepage}/blob/main/CHANGELOG.md"
+  spec.metadata['bug_tracker_uri'] = "#{spec.homepage}/issues"
+  spec.metadata['documentation_uri'] = 'https://kupolak.github.io/flight_radar/'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

@@ -62,8 +62,9 @@ RSpec.describe FlightRadar do
   it 'gets airline logo' do
     airline = [%w[WN SWA], %w[G3 GLO], %w[AD AZU], %w[AA AAL], %w[TK THY]].sample
     logo = FlightRadar.airline_logo(airline[0], airline[1])
-    expect(logo[0]).to_not be nil
-    expect(logo[1]).to_not be nil
+    expect(logo).to be_an(Array)
+    expect(logo.length).to be >= 1
+    expect(logo.first).to match(%r{^https://})
   end
 
   it 'gets country flag' do

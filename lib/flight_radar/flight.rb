@@ -9,6 +9,12 @@ class Flight
   # Accessor for the flight ID.
   attr_accessor :id
 
+  # Read-only accessors for flight attributes.
+  attr_reader :icao_24bit, :latitude, :longitude,
+              :squawk, :aircraft_code, :registration, :time, :origin_airport_iata,
+              :destination_airport_iata, :number, :airline_iata, :on_ground,
+              :callsign, :airline_icao
+
   # Initializes a new instance of the `Flight` class with the given flight ID and information.
   #
   # @param flight_id [String] The unique identifier for the flight.
@@ -31,7 +37,7 @@ class Flight
     @origin_airport_iata = get_info(info[11])
     @destination_airport_iata = get_info(info[12])
     @number = get_info(info[13])
-    @airline_iata = get_info(info[13][0..1])
+    @airline_iata = @number != DEFAULT_TEXT && @number.length >= 2 ? @number[0..1] : DEFAULT_TEXT
     @on_ground = get_info(info[14])
     @vertical_speed = get_info(info[15])
     @callsign = get_info(info[16])
@@ -60,15 +66,20 @@ class Flight
   #
   # @return [String] Formatted flight level string (e.g., "FL350").
   def flight_level
-    @altitude > 10_000 ? "#{@altitude[0..2]} FL" : altitude
+    return altitude if @altitude == DEFAULT_TEXT || @altitude.to_i <= 10_000
+
+    "FL#{(@altitude.to_i / 100).to_s.rjust(3, '0')}"
   end
 
   # Returns a formatted string representing the ground speed of the flight.
   #
   # @return [String] Formatted ground speed string (e.g., "300 kts").
   def ground_speed
-    speed = "#{@ground_speed} kt"
-    speed += 's' if @ground_speed > 1
+    return "#{@ground_speed} kt" if @ground_speed == DEFAULT_TEXT
+
+    speed_value = @ground_speed.to_i
+    speed = "#{speed_value} kt"
+    speed += 's' if speed_value > 1
     speed
   end
 
