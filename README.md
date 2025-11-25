@@ -8,11 +8,17 @@
 - [Usage](#usage)
     - [Airlines](#airlines)
     - [Airport](#airport)
+    - [Airports](#airports)
     - [Zones](#zones)
     - [Flights](#flights)
     - [Flight Details](#flight-details)
+    - [Flight Playback](#flight-playback)
     - [Flights by Airline](#flights-by-airline)
     - [Flights by Bounds](#flights-by-bounds)
+    - [Search](#search)
+    - [Most Tracked Flights](#most-tracked-flights)
+    - [Aircraft Information](#aircraft-information)
+    - [Airline Fleet](#airline-fleet)
     - [Airline Logo](#airline-logo)
     - [Country Flag](#country-flag)
 - [Documentation](#documentation)
@@ -59,9 +65,10 @@ FlightRadar.airlines
 
 ### Airport
 
+Get traffic statistics for a specific airport.
+
 ```ruby
-airport = "LAX"
-FlightRadar.airport(airport)
+FlightRadar.airport("LAX")
 ```
 
 **Sample response:**
@@ -69,27 +76,44 @@ FlightRadar.airport(airport)
 ```ruby
 {
   "details" => {
-    "name" => "Lodz Wladyslaw Reymont Airport",
+    "name" => "Los Angeles International Airport",
     "code" => {
-      "iata" => "LCJ",
-      "icao" => "EPLL"
+      "iata" => "LAX",
+      "icao" => "KLAX"
     },
     "position" => {
-      "latitude" => 51.721882,
-      "longitude" => 19.39813,
-      "altitude" => 604,
+      "latitude" => 33.942536,
+      "longitude" => -118.408075,
+      "altitude" => 125,
       "country" => {
-        "id" => nil,
-        "name" => "Poland",
-        "code" => "POL"
+        "name" => "United States",
+        "code" => "USA"
       },
       "region" => {
-        "city" => "Lodz"
+        "city" => "Los Angeles"
       }
     },
     # ...
   }
 }
+```
+
+### Airports
+
+Get a list of all airports.
+
+```ruby
+FlightRadar.airports
+```
+
+**Sample response:**
+
+```ruby
+[
+  {"name" => "Hartsfield-Jackson Atlanta Intl", "iata" => "ATL", "icao" => "KATL", "lat" => 33.6367, "lon" => -84.4281},
+  {"name" => "Los Angeles Intl", "iata" => "LAX", "icao" => "KLAX", "lat" => 33.9425, "lon" => -118.408},
+  # ...
+]
 ```
 
 ### Zones
@@ -152,6 +176,8 @@ FlightRadar.flights
 
 ### Flight Details
 
+Get detailed information about a specific flight.
+
 ```ruby
 flight_id = FlightRadar.flights.sample.id
 FlightRadar.flight_details(flight_id)
@@ -191,6 +217,17 @@ FlightRadar.flight_details(flight_id)
   # ...
 }
 ```
+
+### Flight Playback
+
+Get playback data for a specific flight (includes full flight path history).
+
+```ruby
+flight_id = FlightRadar.flights.sample.id
+FlightRadar.flight_playback(flight_id)
+```
+
+**Note:** This is an alias for `flight_details` and returns the same data structure.
 
 ### Flights by airline
 
@@ -256,6 +293,8 @@ FlightRadar.airline_logo(iata, icao)
 
 ### Country flag
 
+Get the URL of a country flag image.
+
 ```ruby
 FlightRadar.country_flag("Poland")
 ```
@@ -265,6 +304,96 @@ FlightRadar.country_flag("Poland")
 ```ruby
 "https://www.flightradar24.com/static/images/data/flags-small/poland.gif"
 ```
+
+### Search
+
+Search for flights, airports, and airlines.
+
+```ruby
+FlightRadar.search("LOT", 10)
+```
+
+**Sample response:**
+
+```ruby
+{
+  "results" => [
+    {
+      "id" => "LOT",
+      "label" => "LOT (LOT / LO)",
+      "detail" => {
+        "operator_id" => 11,
+        "iata" => "LO",
+        "logo" => "https://cdn.flightradar24.com/assets/airlines/logotypes/11.png"
+      },
+      "type" => "operator",
+      "match" => "icao",
+      "name" => "LOT"
+    },
+    # ...
+  ],
+  "stats" => {
+    "total" => {
+      "all" => 42,
+      "airport" => 12,
+      "operator" => 15,
+      "live" => 8
+    }
+  }
+}
+```
+
+### Most Tracked Flights
+
+Get the most tracked flights in real-time.
+
+```ruby
+FlightRadar.most_tracked
+```
+
+**Sample response:**
+
+```ruby
+{
+  "data" => [
+    {
+      "flight_id" => "2abc1234",
+      "flight" => "AA100",
+      "callsign" => "AAL100",
+      "squawk" => "1234",
+      "clicks" => 5420,
+      # ...
+    },
+    # ...
+  ],
+  "update_time" => 1700000000,
+  "version" => 1
+}
+```
+
+### Aircraft Information
+
+Search for aircraft by registration number.
+
+```ruby
+FlightRadar.aircraft("N12345")
+```
+
+**Sample response:**
+
+Returns search results similar to the `search` method, filtered for aircraft.
+
+### Airline Fleet
+
+Get fleet information for a specific airline.
+
+```ruby
+FlightRadar.airline_fleet("LOT")
+```
+
+**Sample response:**
+
+Returns search results similar to the `search` method, showing airline and aircraft information.
 
 ## Documentation
 

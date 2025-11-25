@@ -72,5 +72,40 @@ RSpec.describe FlightRadar do
     flag_url = FlightRadar.country_flag(country)
     expect(flag_url).to eq 'https://www.flightradar24.com/static/images/data/flags-small/united-states.gif'
   end
+
+  it 'searches for flights, airports, and airlines' do
+    result = FlightRadar.search('LOT', 10)
+    expect(result).to be_a(Hash)
+    expect(result.key?('results')).to be_truthy
+    expect(result['results']).to be_an(Array)
+    expect(result['results'].length).to be >= 1
+  end
+
+  it 'gets most tracked flights' do
+    result = FlightRadar.most_tracked
+    expect(result).to be_a(Hash)
+    expect(result.key?('data')).to be_truthy
+    expect(result['data']).to be_an(Array)
+    expect(result['data'].length).to be >= 1
+  end
+
+  it 'gets flight playback data' do
+    flights = FlightRadar.flights
+    flight = flights.sample
+    result = FlightRadar.flight_playback(flight.id)
+    expect(result).to be_a(Hash)
+  end
+
+  it 'searches for aircraft by registration' do
+    result = FlightRadar.aircraft('N')
+    expect(result).to be_a(Hash)
+    expect(result.key?('results')).to be_truthy
+  end
+
+  it 'searches for airline fleet' do
+    result = FlightRadar.airline_fleet('AA')
+    expect(result).to be_a(Hash)
+    expect(result.key?('results')).to be_truthy
+  end
 end
 # rubocop:enable Metrics/BlockLength
