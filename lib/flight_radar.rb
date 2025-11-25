@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
+require_relative 'flight_radar/version'
 require_relative 'flight_radar/core'
 require_relative 'flight_radar/request'
 require_relative 'flight_radar/flight'
 
 # FlightRadar module for sending requests to FlightRadar24 API
 module FlightRadar
-  VERSION = '0.3.0'
 
   module_function
 

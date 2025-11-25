@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/flight_radar'
+require_relative 'lib/flight_radar/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'flight_radar'
