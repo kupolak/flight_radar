@@ -116,8 +116,8 @@ module FlightRadar
   # @return [Hash] A hash containing information about flight tracking zones.
   def zones
     request = Request.new(Core::ZONES_DATA_URL, Core::JSON_HEADERS)
-    request = request.content
-    request.delete('version')
-    request
+    content = request.content
+    content.delete('version')
+    content
   end
 end
